@@ -5,14 +5,15 @@ NodeJS Notes API
 The Notes API allows users to register accounts, log in securely, and manage their notes. Each user can create, update, delete, and retrieve their notes through a set of well-defined API endpoints. The API ensures data security by employing JWT tokens for user authentication and authorization.
 
 
-##  Features
+## Features
 
-User Authentication: Secure user registration and login functionalities using JWT tokens.
-CRUD Operations: Create, read, update, and delete operations for managing notes.
-Protected Routes: Access to notes endpoints is restricted to authenticated users only.
-Error Handling: Comprehensive error handling for various scenarios, ensuring robustness.
-Environment Variables: Configuration via environment variables using dotenv for easy deployment.
-Scalable and Maintainable: Built using best practices to ensure scalability and maintainability.
+- **User Authentication**: Secure user registration and login functionalities using JWT tokens.
+- **CRUD Operations**: Create, read, update, and delete operations for managing notes.
+- **Protected Routes**: Access to notes endpoints is restricted to authenticated users only.
+- **Error Handling**: Comprehensive error handling for various scenarios, ensuring robustness.
+- **Environment Variables**: Configuration via environment variables using dotenv for easy deployment.
+- **Scalable and Maintainable**: Built using best practices to ensure scalability and maintainability.
+
 
 
 ## Installation
@@ -37,9 +38,10 @@ npm start
 
 ## Technologies Used
 
-Node.js: JavaScript runtime for building server-side applications.
-Express.js: Fast, unopinionated, minimalist web framework for Node.js.
-MySQL: Relational database management system for storing user data and notes.
-JWT (JSON Web Tokens): Secure method for transmitting information between parties.
-Bcrypt: Library for hashing passwords securely.
-Dotenv: Module for loading environment variables from a .env file.
+- **Node.js**: JavaScript runtime for building server-side applications.
+- **Express.js**: Fast, unopinionated, minimalist web framework for Node.js.
+- **MySQL**: Relational database management system for storing user data and notes.
+- **JWT (JSON Web Tokens)**: Secure method for transmitting information between parties.
+- **Bcrypt**: Library for hashing passwords securely.
+- **Dotenv**: Module for loading environment variables from a .env file.
+
