@@ -37,7 +37,6 @@ exports.getNote = (userid, table, callback) => {
       (error, results, fields) => {
         if (error) return callback(error, null);
 
-        console.log(results);
         return callback(null, results);
       }
     );
@@ -51,7 +50,6 @@ exports.getAllNote = (table, callback) => {
     connection.query(`SELECT * FROM ${table}`, (error, results, fields) => {
       if (error) return callback(error, null);
 
-      console.log(results);
       return callback(null, results);
     });
   } catch (error) {

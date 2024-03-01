@@ -6,8 +6,10 @@ const {
 } = require("../controller/UserController");
 const {
   validateInput,
-  validatelogininputs,
-  validateemail,
+  validateLoginInputs,
+  checkInputs,
+  validateNoteInput,
+  validateDeleteNoteInput
 } = require("../validations/Validator");
 const {
   getnotes,
@@ -20,13 +22,13 @@ const auth = require("../middleware/verfifytoken");
 
 const router = express.Router();
 
-router.post("/registration", validateInput, Registration);
-router.post("/login", validatelogininputs, Login);
-router.delete("/deleteaccount", validateemail, deleteuser);
-router.post("/addnotes", auth, addnotes);
 router.get("/getnotes", auth, getnotes);
 router.get("/getallnotes", auth, getallnotes);
-router.put("/updatenote", auth, updatenotes);
-router.delete("/deletenote", auth, deletenotes);
+router.post("/registration", validateInput, Registration);
+router.post("/login", validateLoginInputs, Login);
+router.post("/addnotes", auth, validateNoteInput, addnotes);
+router.put("/updatenote", auth, validateNoteInput, updatenotes);
+router.delete("/deleteaccount", checkInputs, deleteuser);
+router.delete("/deletenote", auth,validateDeleteNoteInput,deletenotes);
 
 module.exports = router;

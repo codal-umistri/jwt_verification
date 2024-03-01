@@ -9,14 +9,6 @@ const {
 
 exports.addnotes = async (req, res) => {
   try {
-    if (
-      req.body.description === "undefined" ||
-      !!!req.body?.description?.trim() ||
-      req.body.title === "undefined" ||
-      !!!req.body?.title?.trim()
-    )
-      return res.status(400).json({ message: "Please enter details" });
-
     await addNote(
       req.userid,
       req.body.title,
@@ -62,14 +54,6 @@ exports.getallnotes = async (req, res) => {
 
 exports.updatenotes = async (req, res) => {
   try {
-    if (
-      req.body.description === "undefined" ||
-      !!!req.body?.description?.trim() ||
-      req.body.title === "undefined" ||
-      !!!req.body?.title?.trim()
-    )
-      return res.status(400).json({ message: "Please enter details" });
-
     await cheackNote(
       req.userid,
       req.body.title,
@@ -99,9 +83,6 @@ exports.updatenotes = async (req, res) => {
 
 exports.deletenotes = async (req, res) => {
   try {
-    if (req.body.title === "undefined" || !!!req.body?.title?.trim())
-      return res.status(400).json({ message: "Please enter details" });
-
     await cheackNote(
       req.userid,
       req.body.title,
@@ -111,12 +92,12 @@ exports.deletenotes = async (req, res) => {
 
         return result.length
           ? await deleteNote(
-              req.userid, 
+              req.userid,
               req.body.title,
               "NOTES",
               (error, result) => {
                 if (error) res.status(500).json({ message: error.message });
-                 console.log(result)
+                console.log(result);
                 res.status(200).json({ message: "Note deleted successfully" });
               }
             )
@@ -127,4 +108,3 @@ exports.deletenotes = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
-

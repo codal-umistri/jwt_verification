@@ -28,12 +28,7 @@ Scalable and Maintainable: Built using best practices to ensure scalability and 
 
 1.Set up environment variables:
 
-<<<<<<< HEAD
 Create a .env file in the root directory as per.env.example.
-=======
-Create a .env file in the root directory.
-Define the required environment variables (e.g., PORT, DATABASE_URL, JWT_SECRET).
->>>>>>> 4159b954dcd9d715e478d453c489de883d3c40a0
 
 2.Start the server:
 
@@ -47,8 +42,4 @@ Express.js: Fast, unopinionated, minimalist web framework for Node.js.
 MySQL: Relational database management system for storing user data and notes.
 JWT (JSON Web Tokens): Secure method for transmitting information between parties.
 Bcrypt: Library for hashing passwords securely.
-<<<<<<< HEAD
 Dotenv: Module for loading environment variables from a .env file.
-=======
-Dotenv: Module for loading environment variables from a .env file.
->>>>>>> 4159b954dcd9d715e478d453c489de883d3c40a0
