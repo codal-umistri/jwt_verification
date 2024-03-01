@@ -33,9 +33,11 @@ Create a .env file in the root directory as per.env.example.
 npm start
 
 ## Technologies Used
-Node.js: JavaScript runtime for building server-side applications.
-Express.js: Fast, unopinionated, minimalist web framework for Node.js.
-MySQL: Relational database management system for storing user data and notes.
-JWT (JSON Web Tokens): Secure method for transmitting information between parties.
-Bcrypt: Library for hashing passwords securely.
-Dotenv: Module for loading environment variables from a .env file.
+
+- Node.js: JavaScript runtime for building server-side applications.
+- Express.js: Fast, unopinionated, minimalist web framework for Node.js.
+- MySQL: Relational database management system for storing user data and notes.
+- JWT (JSON Web Tokens): Secure method for transmitting information between parties.
+- Bcrypt: Library for hashing passwords securely.
+- Dotenv: Module for loading environment variables from a .env file.
+
