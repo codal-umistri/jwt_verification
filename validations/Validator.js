@@ -1,8 +1,11 @@
-const validator = require("validator");
-
-// Common function to handle validation errors
 const handleValidationError = (res, errorMessage) => {
   return res.status(400).json({ message: errorMessage });
+};
+
+const validateEmail = (email) => {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  return email.match(emailRegex);
 };
 
 exports.validateInput = (req, res, next) => {
@@ -17,7 +20,7 @@ exports.validateInput = (req, res, next) => {
     !!!req.body?.confirm_password?.trim()
   ) {
     return handleValidationError(res, "Please fill in all fields");
-  } else if (!validator.isEmail(req.body.email)) {
+  } else if (!validateEmail(req.body.email)) {
     return handleValidationError(res, "Please enter a valid email");
   } else if (req.body.password !== req.body.confirm_password) {
     return handleValidationError(res, "Passwords do not match");
@@ -34,7 +37,7 @@ exports.validateLoginInputs = (req, res, next) => {
     !!!req.body?.password?.trim()
   ) {
     return handleValidationError(res, "Please fill in all fields");
-  } else if (!validator.isEmail(req.body.email)) {
+  } else if (!validateEmail(req.body.email)) {
     return handleValidationError(res, "Please enter a valid email");
   }
 
@@ -44,7 +47,7 @@ exports.validateLoginInputs = (req, res, next) => {
 exports.checkInputs = (req, res, next) => {
   if (req.body?.email === "undefined" || !!!req.body?.email?.trim()) {
     return handleValidationError(res, "Please fill in all fields");
-  } else if (!validator.isEmail(req.body.email)) {
+  } else if (!validateEmail(req.body.email)) {
     return handleValidationError(res, "Please enter a valid email");
   }
 
@@ -69,3 +72,4 @@ exports.validateDeleteNoteInput = (req, res, next) => {
 
   next();
 };
+

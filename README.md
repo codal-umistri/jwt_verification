@@ -22,14 +22,15 @@ The Notes API allows users to register accounts, log in securely, and manage the
    git clone https://github.com/codal-umistri/jwt_verification.git
 
 2. Install dependencies:
-   npm install
+   step-1:- cd jwt_verification
+   step-2:- npm install
 
 
 ## Usage
 
 1.Set up environment variables:
 
-Create a .env file in the root directory as per.env.example.
+Create a ".env" file in the root directory as per ".env.example." file
 
 2.Start the server:
 
@@ -44,4 +45,6 @@ npm start
 - **JWT (JSON Web Tokens)**: Secure method for transmitting information between parties.
 - **Bcrypt**: Library for hashing passwords securely.
 - **Dotenv**: Module for loading environment variables from a .env file.
+- **Swagger-JSDoc**: Tool to define and document API in Swagger format using JSDoc comments.
+- **Swagger-UI-Express**: Middleware to serve Swagger UI for visualizing and interacting with the API documentation.
 

@@ -7,7 +7,6 @@ const auth = (req, res, next) => {
       return res.status(401).json({ message: "Unauthorizres User" });
     }
     req.userid = jwt.verify(token, process.env.SECRET_KEY).id;
-    console.log(jwt.verify(token, process.env.SECRET_KEY).id + " from jwt");
     next();
   } catch (error) {
     return res.status(401).json({ message: " Unauthorizred User" });

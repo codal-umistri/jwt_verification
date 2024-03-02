@@ -24,7 +24,6 @@ exports.Registration = async (req, res) => {
         : res.status(409).json({ message: "User Already Exits" });
     });
   } catch {
-    console.log("heyy");
     return res.status(500).json({ message: error.message });
   }
 };
@@ -55,7 +54,6 @@ exports.deleteuser = async (req, res) => {
   try {
     await checkUser(req.body.email, "USER", async (error, result) => {
       if (error) res.status(500).json({ message: error.message });
-      console.log(result);
       return result.length
         ? await deleteUser(req.body.email, "USER", (error, result) => {
             if (error) res.status(500).json({ message: error.message });
