@@ -2,12 +2,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { checkUser, addUser, deleteUser } = require("../sql/querys");
 
-exports.Registration = async (req, res) => {
+exports.Registration = (req, res) => {
   const hashedpassword = bcrypt.hashSync(req.body.password, 10);
   try {
-    await checkUser(req.body.email, "USER", async (error, result) => {
+     checkUser(req.body.email, "USER", async (error, result) => {
       if (error)
-        return res.status(500).json({ message: error.message + "abjhbsdaah" });
+        return res.status(500).json({ message: error.message });
 
       return !result.length
         ? await addUser(
@@ -16,21 +16,21 @@ exports.Registration = async (req, res) => {
             hashedpassword,
             "USER",
             (error, result) => {
-              if (error) res.status(500).json({ message: error.message });
+              if (error)  res.status(500).json({ message: error.message });
 
               res.status(200).json({ message: "User has been registered" });
             }
           )
-        : res.status(409).json({ message: "User Already Exits" });
+        :  res.status(409).json({ message: "User Already Exits" });
     });
-  } catch {
+  } catch(error) {
     return res.status(500).json({ message: error.message });
   }
 };
 
-exports.Login = async (req, res) => {
+exports.Login = (req, res) => {
   try {
-    await checkUser(req.body.email, "USER", async (error, result) => {
+    checkUser(req.body.email, "USER", async (error, result) => {
       if (error) return res.status(500).json({ message: error.message });
 
       return result?.length &&
@@ -42,7 +42,7 @@ exports.Login = async (req, res) => {
         : res.status(400).json({
             message: result?.length
               ? "Password didn't match"
-              : "User Not Found",
+              : "User Not Found", 
           });
     });
   } catch (error) {
@@ -50,13 +50,13 @@ exports.Login = async (req, res) => {
   }
 };
 
-exports.deleteuser = async (req, res) => {
+exports.deleteuser = (req, res) => {
   try {
-    await checkUser(req.body.email, "USER", async (error, result) => {
+    checkUser(req.body.email, "USER", async (error, result) => {
       if (error) res.status(500).json({ message: error.message });
       return result.length
         ? await deleteUser(req.body.email, "USER", (error, result) => {
-            if (error) res.status(500).json({ message: error.message });
+            if (error)  res.status(500).json({ message: error.message });
 
             res.status(200).json({ message: "User has been deleted" });
           })

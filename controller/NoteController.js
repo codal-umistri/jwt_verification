@@ -7,9 +7,9 @@ const {
   cheackNote,
 } = require("../sql/querys");
 
-exports.addnotes = async (req, res) => {
+exports.addnotes = (req, res) => {
   try {
-    await addNote(
+     addNote(
       req.userid,
       req.body.title,
       req.body.description,
@@ -24,9 +24,9 @@ exports.addnotes = async (req, res) => {
   }
 };
 
-exports.getnotes = async (req, res) => {
+exports.getnotes = (req, res) => {
   try {
-    await getNote(req.userid, "NOTES", (error, result) => {
+    getNote(req.userid, "NOTES", (error, result) => {
       if (error) return res.status(500).json({ message: error.message });
 
       return res
@@ -38,9 +38,9 @@ exports.getnotes = async (req, res) => {
   }
 };
 
-exports.getallnotes = async (req, res) => {
+exports.getallnotes = (req, res) => {
   try {
-    await getAllNote("NOTES", (error, result) => {
+    getAllNote("NOTES", (error, result) => {
       if (error) return res.status(500).json({ message: error.message });
 
       return res
@@ -52,9 +52,9 @@ exports.getallnotes = async (req, res) => {
   }
 };
 
-exports.updatenotes = async (req, res) => {
+exports.updatenotes = (req, res) => {
   try {
-    await cheackNote(
+    cheackNote(
       req.userid,
       req.body.title,
       "NOTES",
@@ -81,9 +81,9 @@ exports.updatenotes = async (req, res) => {
   }
 };
 
-exports.deletenotes = async (req, res) => {
+exports.deletenotes = (req, res) => {
   try {
-    await cheackNote(
+    cheackNote(
       req.userid,
       req.body.title,
       "NOTES",

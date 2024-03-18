@@ -19,11 +19,11 @@ The Notes API allows users to register accounts, log in securely, and manage the
 ## Installation
 
 1. Clone the repository: 
-   git clone https://github.com/codal-umistri/jwt_verification.git
+   ```git clone https://github.com/codal-umistri/jwt_verification.git```
 
 2. Install dependencies:
-   step-1:- cd jwt_verification
-   step-2:- npm install
+   step-1:- ```cd jwt_verification```
+   step-2:- ```npm install```
 
 
 ## Usage
@@ -48,3 +48,4 @@ npm start
 - **Swagger-JSDoc**: Tool to define and document API in Swagger format using JSDoc comments.
 - **Swagger-UI-Express**: Middleware to serve Swagger UI for visualizing and interacting with the API documentation.
 
+ 
