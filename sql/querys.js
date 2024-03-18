@@ -6,7 +6,7 @@ exports.addNote = (userid, title, description, table, callback) => {
       `INSERT INTO ${table} (userid,title,Description) VALUES ('${userid}', '${title}', '${description}')`,
       (error, results, fields) => {
         if (error) return callback(error, null);
-
+        console.log(results);
         return callback(null, results);
       }
     );
@@ -36,7 +36,7 @@ exports.getNote = (userid, table, callback) => {
       `SELECT * FROM ${table} WHERE userid = '${userid}'`,
       (error, results, fields) => {
         if (error) return callback(error, null);
-
+        console.log(results);
         return callback(null, results);
       }
     );
@@ -93,7 +93,7 @@ exports.checkUser = (email, table, callback) => {
       `SELECT * FROM ${table} WHERE email  = '${email}'`,
       (error, results, fields) => {
         if (error) return callback(error, null);
-
+        console.log(results)
         return callback(null, results);
       }
     );

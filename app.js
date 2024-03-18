@@ -21,7 +21,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/v1", Router);
 
-let Port = process.env.PORT || 1000;
+let Port = process.env.PORT || 4000;
 app.listen(Port, (req, res) => {
   console.log("App is running  " + Port);
 });
